@@ -1,0 +1,16 @@
+h2 {{title}}
+
+h4 Get Weather Conditions
+.row
+  .col-xs-4
+    form(role='form', novalidate, name='weatherForm')
+      .form-group
+        label(for='zip') ZIP Code
+        input.form-control#zip(name='zip', ng-model='zip', ng-pattern='/^[0-9]{5}$/', required, type='text', autofocus, ng-min)
+      .form-group
+        button.btn.brn-success(type='submit', ng-show='weatherForm.$valid', ng-click='getConditions()') Get Weather
+    h6 The zip code you entered is {{zip}}
+    h6 Current temperature is {{tempC}}
+      img(src='{{url}}')
+    h6 Visibility is {{vis}}
+    h6 Wind is {{wind}}

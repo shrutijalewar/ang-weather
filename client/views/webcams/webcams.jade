@@ -1,0 +1,19 @@
+h2 {{title}}
+
+h4 Get Street Views
+.row
+  .col-xs-4
+    form(role='form', novalidate, name='webcamForm')
+      .form-group
+        label(for='zip') ZIP Code
+        input.form-control#zip(name='zip', ng-model='zip', ng-pattern='/^[0-9]{5}$/', required, type='text', autofocus, ng-min)
+      .form-group
+        button.btn.brn-success(type='submit', ng-show='webcamForm.$valid', ng-click='getWebcams()') Get views
+    h6 The zip code you entered is {{zip}}
+  .col-xs-8
+.row
+  .col-xs-12
+    .panel-panel-default
+      .panel-body
+        .webcams(ng-repeat='webcam in webcams')
+          img(ng-src='{{webcam.WIDGETCURRENTIMAGEURL}}')
